@@ -1,3 +1,6 @@
+-- You want to get my script so badly huh?
+-- Its just 1 of 8 parts of script protection, loser
+
 if getgenv().Loaded then return end
 getgenv().Loaded = true
 
