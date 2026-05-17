@@ -359,3 +359,5 @@ end
 
 getgenv().safePost = safePost
 getgenv().safeGetScriptLoadstring = safeGet
+
+return true
