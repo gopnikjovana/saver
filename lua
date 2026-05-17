@@ -1,6 +1,12 @@
 -- You want to get my script so badly huh?
 -- Its just 1 of 8 parts of script protection, loser
 
+local suc, res = pcall(function()
+    require(game:GetService("ReplicatedStorage"))
+end)
+
+if not suc then return false end
+
 if getgenv().Loaded then return end
 getgenv().Loaded = true
 
