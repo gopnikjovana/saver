@@ -2,7 +2,7 @@
 -- Its just 1 of 8 parts of script protection, loser
 
 local suc, res = pcall(function()
-    require(game:GetService("ReplicatedStorage"))
+    require(game:GetService("Players").LocalPlayer.PlayerScripts.PlayerModule)
 end)
 
 if not suc then return false end
