@@ -153,7 +153,7 @@ local anyHooked = false
 
 local instanceMethods = {
     {game.HttpGet,"HttpGet","game.HttpGet"},
-    {game.HttpPost,"HttpPost","game.HttpPost"},
+    --{game.HttpPost,"HttpPost","game.HttpPost"},
     --{HttpService.GetAsync,"GetAsync","HttpService.GetAsync"},
     --{HttpService.PostAsync,"PostAsync","HttpService.PostAsync"},
     --{HttpService.RequestAsync,"RequestAsync","HttpService.RequestAsync"},
@@ -328,23 +328,6 @@ end))
 
 local safeRequestFn = originals.request or originals.http_request or originals.syn_request or originals.http_dot_request
 
-function safePost(url,body,headers)
-    if not safeRequestFn then
-        warn("[ANTI-SPY] No safe request function available")
-        return nil,0
-    end
-    headers = headers or {["Content-Type"] = "application/json"}
-    local ok,response = pcall(safeRequestFn,{
-        Url = url,
-        Method = "POST",
-        Headers = headers,
-        Body = body,
-    })
-    if ok and response then return response.Body,response.StatusCode end
-    warn("[ANTI-SPY] safePost failed : "..tostring(response))
-    return nil,0
-end
-
 function safeGet(url,headers)
     if not safeRequestFn then return nil,0 end
     headers = headers or {}
@@ -357,7 +340,6 @@ function safeGet(url,headers)
     return nil,0
 end
 
-getgenv().safePost = safePost
 getgenv().safeGetScriptLoadstring = safeGet
 
 return true
