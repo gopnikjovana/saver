@@ -247,12 +247,6 @@ end
 
 cleanupSpyData()
 
-task.spawn(function()
-	while task.wait(3) do
-		cleanupSpyData()
-	end
-end)
-
 local ncHandler = newcclosure(function(self,...)
     local method = getnamecallmethod()
     if HTTP_METHODS[method] and originals[method] then
